@@ -3,10 +3,11 @@ vim.g.maplocalleader = " "
 
 -- [[ custom settings ]]
 vim.keymap.set("n", "<leader>|", "<cmp>sp<CR>") -- horizontal split
-vim.keymap.set("n", "<leader>-", "<cmd>vs<CR>") -- vertical split
+vim.keymap.set("n", "<leader>-", "<cmd>vs<CR>")
 
 -- [[ theprimeagen settings ]]
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
