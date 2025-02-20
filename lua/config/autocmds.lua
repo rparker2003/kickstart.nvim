@@ -1,10 +1,10 @@
--- [[ primeagen settings ]]
 local augroup = vim.api.nvim_create_augroup
 local ThePrimeagenGroup = augroup("ThePrimeagen", {})
-
-local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup("HighlightYank", {})
+local restore_group = augroup("RestoreCursor", {})
+local autocmd = vim.api.nvim_create_autocmd
 
+-- [[ primeagen settings ]]
 function R(name)
   require("plenary.reload").reload_module(name)
 end
@@ -71,5 +71,18 @@ autocmd("LspAttach", {
     vim.keymap.set("n", "]d", function()
       vim.diagnostic.goto_prev()
     end, opts)
+  end,
+})
+
+-- [[ custom settings ]]
+autocmd("BufReadPost", {
+  group = restore_group,
+  callback = function()
+    local last_line = vim.fn.line("'\"")
+    local total_lines = vim.fn.line("$")
+    if last_line > 1 and last_line <= total_lines then
+      vim.cmd("normal! g`\"")
+      vim.fn.timer_start(1, function() vim.cmd("normal! zz") end)
+    end
   end,
 })

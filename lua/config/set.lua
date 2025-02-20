@@ -1,12 +1,23 @@
+-- [[ custom settings ]]
+-- store custor position and file marks history
+
 -- [[ theprimeagen settings ]]
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+local function set_indent(width)
+    vim.opt.shiftwidth = width
+    vim.opt.tabstop = width
+    vim.opt.softtabstop = width
+end
+
+set_indent(2)
+
+-- vim.opt.tabstop = 4
+-- vim.opt.softtabstop = 4
+-- vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
