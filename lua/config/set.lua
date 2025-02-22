@@ -4,20 +4,18 @@
 -- [[ theprimeagen settings ]]
 vim.opt.guicursor = ""
 
+-- [[ line display ]]
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- [[ indenting ]]
 local function set_indent(width)
-    vim.opt.shiftwidth = width
-    vim.opt.tabstop = width
-    vim.opt.softtabstop = width
+  vim.opt.shiftwidth = width
+  vim.opt.tabstop = width
+  vim.opt.softtabstop = width
 end
-
 set_indent(2)
 
--- vim.opt.tabstop = 4
--- vim.opt.softtabstop = 4
--- vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
@@ -59,9 +57,9 @@ vim.opt.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.opt.clipboard = "unnamedplus"
-end)
+-- vim.schedule(function()
+--   vim.opt.clipboard = "unnamedplus"
+-- end)
 
 -- Enable break indent
 vim.opt.breakindent = true
